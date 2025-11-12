@@ -8,7 +8,11 @@
     <style>
         body {
             font-family: 'Roboto', sans-serif;
-            background-color: #f5f5f5;
+                background:
+                        linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.35)),
+                        url("ImagemLogin.png");
+                background-size: cover;
+                background-position: center;
             margin: 0;
             height: 100vh;
             display: flex;
@@ -17,7 +21,7 @@
         }
 
         .login-container {
-            background-color: #ffffff;
+            background: #4FA58F;
             padding: 2rem;
             border-radius: 10px;
             width: 320px;
@@ -87,7 +91,7 @@
 </head>
 <body>
 <div class="login-container">
-    <h2>Bem-vindo à <span>UCPEL!</span></h2>
+    <h2>Bem-vindo à <span>HealthConnect!</span></h2>
     <h3>Faça seu login</h3>
     <form id="loginForm" method="post">
         <label for="email">Email</label>
@@ -103,7 +107,7 @@
 
 <script>
     document.getElementById("loginForm").addEventListener("submit", async function(e) {
-        e.preventDefault(); // previne submit padrão (GET)
+        e.preventDefault();
 
         const email = document.getElementById("email").value;
         const senha = document.getElementById("senha").value;

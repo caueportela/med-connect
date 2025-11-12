@@ -7,14 +7,17 @@
     <style>
         body {
             font-family: 'Roboto', sans-serif;
-            background-color: #4484b4;
+            background:
+                    linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.35)),
+                    url("ImagemLogin.png");
+            background-size: cover;
+            background-position: center;
             margin: 0;
             height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
         }
-
         .login-container {
             background-color: #ffffff;
             padding: 2rem;
@@ -29,7 +32,7 @@
         }
 
         h2 span {
-            color: #502c64;
+            color: #4FA58F;
             font-weight: bold;
         }
 
@@ -60,7 +63,7 @@
 </head>
 <body>
 <div class="login-container">
-    <h2>Cadastro no <span>med connect</span></h2>
+    <h2>Cadastro no <span>healthconnect</span></h2>
     <h3>Preencha os dados</h3>
 
     <form id="cadastroForm">
@@ -71,7 +74,11 @@
         <select id="tipo" required>
             <option value="">Selecione o tipo</option>
             <option value="paciente">Paciente</option>
-            <option value="profissional">Profissional da Saúde</option>
+            <option value="profissional">Médico</option>
+            <option value="profissional">Psicólogo</option>
+            <option value="profissional">Fisioterapeuta</option>
+            <option value="profissional">Dentista</option>
+            <option value="profissional">Nutricionista</option>
         </select>
 
         <div id="registroDiv">
@@ -87,9 +94,23 @@
 <script>
     const tipoSelect = document.getElementById("tipo");
     const registroDiv = document.getElementById("registroDiv");
+    const registroInput = document.getElementById("registro");
 
     tipoSelect.addEventListener("change", () => {
-        registroDiv.style.display = tipoSelect.value === "profissional" ? "block" : "none";
+        // se for paciente, esconde o registro e remove o required
+        if(tipoSelect.value === "paciente") {
+            registroDiv.style.display = "none";
+            registroInput.required = false;
+            registroInput.value = ""; // limpa caso tivesse algo
+        } else if(tipoSelect.value !== "") {
+            // se for qualquer outro tipo (profissional), mostra e torna obrigatório
+            registroDiv.style.display = "block";
+            registroInput.required = true;
+        } else {
+            registroDiv.style.display = "none";
+            registroInput.required = false;
+            registroInput.value = "";
+        }
     });
 
     const form = document.getElementById("cadastroForm");
@@ -101,7 +122,7 @@
             email: document.getElementById("email").value,
             senha: document.getElementById("senha").value,
             tipo: document.getElementById("tipo").value,
-            registro: document.getElementById("registro").value
+            registro: registroInput.value
         };
 
         const res = await fetch("cadastro", {

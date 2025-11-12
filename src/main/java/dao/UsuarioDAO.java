@@ -42,15 +42,22 @@ public class UsuarioDAO {
     }
 
     public Usuario login(String email, String senha) throws Exception {
-        Usuario usuario = findByEmail(email);
+        if (email == null || senha == null) {
+            return null;
+        }
 
+        Usuario usuario = findByEmail(email.trim());
         if (usuario == null){
             return null;
         }
 
-        if (usuario.getSenha().equals(senha)){
+        System.out.println("Senha no banco: [" + usuario.getSenha() + "]");
+        System.out.println("Senha recebida: [" + senha + "]");
+
+        if (usuario.getSenha() != null && usuario.getSenha().trim().equals(senha.trim())) {
             return usuario;
         }
+
         return null;
     }
 

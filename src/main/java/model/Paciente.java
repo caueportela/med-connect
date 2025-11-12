@@ -8,6 +8,6 @@ import lombok.*;
 
 public class Paciente {
     private long id;
-    private Usuario usuario; //herdando dados básicos de ‘login’
+    private Usuario usuario;
     private String cpf;
 }

@@ -1,6 +1,8 @@
 package controller;
 
 import dao.UsuarioDAO;
+import dto.LoginRequestDTO;
+import dto.LoginResponseDTO;
 import model.Usuario;
 import org.json.JSONObject;
 import jakarta.servlet.ServletException;
@@ -31,13 +33,15 @@ public class LoginServlet extends HttpServlet {
         }
 
         JSONObject json = new JSONObject(sb.toString());
-        String email = json.getString("email");
-        String senha = json.getString("senha");
-
+        // entra DTO
+        LoginRequestDTO LoginRequest = new LoginRequestDTO(
+                json.getString("email"),
+                json.getString("senha")
+        );
         UsuarioDAO dao = new UsuarioDAO();
         Usuario usuario;
         try {
-            usuario = dao.login(email, senha);
+            usuario = dao.login(LoginRequest.getEmail(), LoginRequest.getSenha());
         } catch (Exception e) {
             response.setStatus(500);
             response.getWriter().write("{\"erro\":\"Erro interno no servidor\"}");
@@ -53,10 +57,18 @@ public class LoginServlet extends HttpServlet {
             return;
         }
 
+        LoginResponseDTO responseDTO = new LoginResponseDTO(
+                usuario.getId(),
+                usuario.getEmail(),
+                usuario.getTipo()
+        );
+
+
+
         JSONObject userJson = new JSONObject();
-        userJson.put("id", usuario.getId());
-        userJson.put("email", usuario.getEmail());
-        userJson.put("tipo", usuario.getTipo());
+        userJson.put("id", responseDTO.getId());
+        userJson.put("email", responseDTO.getEmail());
+        userJson.put("tipo", responseDTO.getTipo());
 
         response.getWriter().write(userJson.toString());
     }
