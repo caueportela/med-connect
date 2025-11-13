@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Sair da Conta - HealthConnect</title>
+  <link rel="stylesheet" href="logout.css">
+</head>
+<body>
+
+  <!-- Cabeçalho -->
+  <header>
+    <div class="logo">HealthConnect</div>
+    <nav>
+      <a href="pagfuncional.html">Início</a>
+      <a href="consultas.html">Consultas</a>
+      <a href="perfil.html">Perfil</a>
+      <a href="logout.html">Sair</a>
+    </nav>
+  </header>
+
+  <!-- Conteúdo principal -->
+  <section class="logout">
+    <h1>Deseja realmente sair da sua conta?</h1>
+    <p>Você pode apenas encerrar a sessão ou excluir sua conta permanentemente.</p>
+
+    <div class="acoes">
+      <a href="login.html" class="btn sair">Sair da Conta</a>
+      <a href="#" class="btn excluir" onclick="confirmarExclusao()">Excluir Conta</a>
+    </div>
+  </section>
+
+  <!-- Rodapé -->
+  <footer>
+    <p>&copy; 2025 HealthConnect - Todos os direitos reservados</p>
+  </footer>
+
+  <!-- Script de confirmação -->
+  <script>
+    function confirmarExclusao() {
+      const resposta = confirm("Tem certeza que deseja excluir sua conta? Esta ação não pode ser desfeita.");
+      if (resposta) {
+        alert("Sua conta foi excluída com sucesso.");
+        // Aqui você pode adicionar lógica para chamar o backend e excluir a conta
+        window.location.href = "index.html"; // redireciona para a página inicial
+      }
+    }
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>HealthConnect - Painel do Profissional</title>
+  <link rel="stylesheet" href="profissional.css">
+</head>
+<body>
+
+  <!-- Cabeçalho -->
+  <header>
+    <div class="logo">HealthConnect</div>
+    <nav>
+      <a href="#">Consultas</a>
+      <a href="#">Agenda</a>
+      <a href="#">Perfil</a>
+      <a href="#">Sair</a>
+    </nav>
+  </header>
+
+  <!-- Painel principal -->
+  <section class="dashboard">
+    <h1>Olá, sou seu calendário virtual!</h1>
+    <p>Veja abaixo sua agenda de atendimentos:</p>
+
+    <div class="calendar">
+      <div class="calendar-header">
+        <h2>Novembro 2025</h2>
+      </div>
+
+      <div class="calendar-grid">
+        <!-- Exemplo de dia com consulta -->
+        <div class="day">
+          <span class="date">12</span>
+          <div class="consultas">
+            <p><strong>10:00</strong> - Maria Silva</p>
+            <p><strong>14:30</strong> - Carlos Souza</p>
+          </div>
+        </div>
+
+        <!-- Dias vazios -->
+        <div class="day"><span class="date">13</span></div>
+        <div class="day"><span class="date">14</span></div>
+        <div class="day"><span class="date">15</span></div>
+        <!-- ... continue os dias -->
+      </div>
+    </div>
+  </section>

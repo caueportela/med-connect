@@ -1,0 +1,55 @@
+ 
+body {
+    font-family: 'Roboto', sans-serif;
+    background:
+            linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.35)),
+            url("imagens/ImagemLogin.png");
+    background-size: cover;
+    background-position: center;
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.login-container {
+    background-color: #ffffff;
+    padding: 2rem;
+    border-radius: 10px;
+    width: 300px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+h2, h3 {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+h2 span {
+    color: #4FA58F;
+    font-weight: bold;
+}
+
+input, select, button {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #a09e9e;
+    border-radius: 5px;
+}
+
+button {
+    background-color: #4484b4;
+    color: white;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+button:hover {
+    transform: scale(0.98);
+}
+
+#registroDiv {
+    display: none;
+}

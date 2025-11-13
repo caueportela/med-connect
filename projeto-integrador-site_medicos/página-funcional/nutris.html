@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Agendar com Nutricionista - HealthConnect</title>
+  <link rel="stylesheet" href="agendamento.css">
+</head>
+<body>
+
+  <header>
+    <div class="logo">HealthConnect</div>
+    <nav>
+      <a href="pagfuncional.html">Início</a>
+      <a href="consultas.html">Consultas</a>
+      <a href="perfil.html">Perfil</a>
+      <a href="logout.html">Sair</a>
+    </nav>
+  </header>
+
+  <section class="agendamento">
+    <h1>Escolha um profissional para agendar sua consulta</h1>
+    <div class="profissionais">
+
+      <div class="card">
+        <h2>Nutricionista João Herker</h2>
+        <p><strong>Disponível:</strong> Terça e Quinta - 14h às 15h</p>
+        <a href="#" class="btn" onclick="agendarConsulta ('João Herker', '14:00')">Agendar</a>
+      </div>
+
+      <div class="card">
+        <h2> Nutricionista Ana Silveira</h2>
+        <p><strong>Disponível:</strong> Segunda e Quarta - 8h às 9h</p>
+        <a href="#" class="btn" onclick="agendarConsulta ('Ana Silveira', '08:00')" >Agendar</a>
+      </div>
+
+      <div class="card">
+        <h2>Nutricionista William Soares</h2>
+        <p><strong>Disponível:</strong> Sexta - 10h às 11h</p>
+        <a href="#" class="btn" onclick="agendarConsulta ('William Soares', '10:00')">Agendar</a>
+      </div>
+
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 HealthConnect - Todos os direitos reservados</p>
+  </footer>
+
+</body>
+</html>
+<script>
+  function agendarConsulta(profissional, horario) {
+    alert(`Consulta com ${profissional} às ${horario} agendada com sucesso!`);
+    
+    // Aqui você pode adicionar lógica para salvar no banco, redirecionar, etc.
+  }
+</script>
+
